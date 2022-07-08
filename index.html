@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>www.codeshua.com</title>
+ <!--meta tags-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0"/>
+</head>
+<body><center><h1>Create Accordion with JavaScript, CSS & HTML</h1><center>
+
+<button class="accordion_btn">HTML </button>
+<div class="inner">
+<p> A Simple way to Create Accordion with JavaScript, CSS & HTML. 
+A Simple way to Create Accordion with JavaScript, CSS & HTML.
+A Simple way to Create Accordion with JavaScript, CSS & HTML
+</p>
+</div>
+<button class="accordion_btn">CSS</button>
+<div class="inner">
+<p>A Simple way to Create Accordion with JavaScript, CSS & HTML</p>
+</div>
+
+<button class="accordion_btn">JavaScript</button>
+<div class="inner">
+<p>A Simple way to Create Accordion with JavaScript, CSS & HTML</p>
+</div>
+
+<button class="accordion_btn">jQuery</button>
+<div class="inner">
+<p>A Simple way to Create Accordion with JavaScript, CSS & HTML</p>
+</div>
+
+
+
+<style type="text/css">
+
+*{box-sizing: border-box;}
+body{
+margin:10rem ;
+justify-content: space-around;
+background-color: gray;
+align-items: center;
+text-align: center;
+display: grid;
+place-items: center;
+margin-top: 2em;
+}
+/* Style the buttons that are used to open 
+and close the accordion_btn inner */
+.accordion_btn {
+background-color:rgba(70, 0, 130, 1);
+color: #eef;
+cursor: pointer;
+font-family: Inconsolata;
+padding: 24px;
+width: 100%;
+text-align: left;
+font-size:22px;
+font-weight:bolder;
+border: none;
+outline: none;
+margin-bottom:.1em;
+transition: 2s ;
+box-shadow: 3px 2px 14px rgba(0, 0, 0, .2), -7px -5px 9px 1px rgba(255, 255, 255, .2);
+border-radius:6px;
+}
+
+/* Add a background color to the button if it is 
+clicked on (add the .active class with JS), 
+and when you move the mouse over it (hover) */
+.opend, .accordion_btn:hover {
+background-color:rgba(170, 0, 130, 1);
+border-radius: 6px 6px 0px 0px;
+}
+
+/* Style the accordion_btn inner. Note: hidden by default */
+.inner {
+padding: 0 18px;
+background-color: #fff;
+max-height: 0;
+overflow: hidden;
+transition: max-height 1s ease-out;
+margin-bottom:.3em;
+box-shadow: 5px 7px 16px rgba(0, 0, 0, .2), -9px -7px 11px 3px rgba(255, 255, 255, .6);
+border-radius: 0px 0px 6px 6px;
+}
+.accordion_btn:after { 
+content: '\2304'; /* Unicode character for "Caret down"  */
+font-size: 18px;
+color: #fff;
+float: right;
+margin-left: 5px;
+}
+.opend:after {
+content: "\2303"; /* Unicode character for "caret up"*/
+}
+
+</style>
+
+<script type="text/javascript">
+var acc = document.getElementsByClassName("accordion_btn");
+var i;
+for (i = 0; i < acc.length; i++) {
+acc[i].addEventListener("click", function() {
+//allow more than  one panel to open
+this.classList.toggle("opend");
+var inner = this.nextElementSibling;
+if (inner.style.maxHeight) {
+inner.style.maxHeight = null;
+} else {
+/*make height auto depending the content of the inner*/
+inner.style.maxHeight = inner.scrollHeight + "px";
+}
+});
+}
+</script>
